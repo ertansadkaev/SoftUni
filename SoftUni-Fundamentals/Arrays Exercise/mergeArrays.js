@@ -1,4 +1,4 @@
-function mergeArrays(firstArr, secondArr){
+function mergeArray(firstArr, secondArr){
         let newArr = [];
 
     for (let index = 0; index < firstArr.length; index++){
@@ -12,4 +12,4 @@ function mergeArrays(firstArr, secondArr){
     }
         console.log(newArr.join(' - '));
 }
-mergeArrays(['5', '15', '23', '56', '35'], ['17', '22', '87', '36', '11'])
+mergeArray(['5', '15', '23', '56', '35'], ['17', '22', '87', '36', '11'])
