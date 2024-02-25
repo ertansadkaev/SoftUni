@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Home Page</title>
+</head>
+
+<body>
+    
+    <div id="wrapper">
+        <header>
+            <!-- Navigation -->
+            <nav>
+                <div>
+                    <a href="/">Home</a>
+                    <a href="/posts/dashboard">Dashboard</a>
+                    <a href="/search">Search</a>
+                </div>
+
+                <!-- Logged-in users -->
+                {{#if isAuthenticated}}
+                <div class="user">
+                    <a href="/posts/create">Add Stones</a>
+                    <a href="/users/logout">Logout</a>
+                </div>
+
+                <!-- Guest users -->
+                {{else}}
+                <div class="guest">
+                    <a href="/users/login">Login</a>
+                    <a href="/users/register">Register</a>
+                </div>
+                {{/if}}
+            </nav>
+        </header>
+
+        <main class="home">
+
+        {{#each errorMessages}}
+            <div>
+                <div class="errorContainer">
+                <p>{{this}}</p>
+            </div>
+            </div>
+        {{/each}}
+            
+            {{{body}}}
+
+        </main>
+
+        <footer>
+            <p>@EarthTreasureVaul</p>
+        </footer>
+    </div>
+</body>
+
+</html>

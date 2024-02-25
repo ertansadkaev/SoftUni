@@ -1,0 +1,53 @@
+
+        <main class="details">
+            <!-- Details page -->
+            <section id="details">
+                <div id="details-wrapper">
+                    <p id="details-title">Name: {{stone.name}}</p>
+                    <div id="img-wrapper">
+                        <img src="{{stone.image}}" />
+                    </div>
+                    <div id="info-wrapper">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Category: <span id="details-category">{{stone.category}}</span>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>Color: <span id="details-color">{{stone.color}}</span></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Location: <span id="details-location">{{stone.location}}</span></p>
+                                </td>
+                                <td>
+                                    <p>Formula: <span id="details-formula">{{stone.formula}}</span></p>
+                                </td>
+                            </tr>
+                        </table>
+                        <p>Description: <span id="details-description">{{stone.description}}</span></p>
+                    </div>
+                    
+                    <!--Edit and Delete are only for creator-->
+                    <div id="action-buttons">
+                    {{#if isAuthenticated}}
+                    {{#if isOwner}}
+                        <a href="/posts/{{stone._id}}/edit" id="edit-btn">Edit</a>
+                        <a href="/posts/{{stone._id}}/delete" id="delete-btn">Delete</a>
+                    {{/if}}
+                    {{#unless isOwner}}
+                    {{#unless hasLiked}}
+                        <a href="/posts/{{stone._id}}/like" id="like-btn">Like</a>
+                    {{/unless}}
+                    {{#if hasLiked}}
+                        <p id="already-liked">You already liked this stone!</p>
+                    {{/if}}
+                    {{/unless}}
+                    {{/if}}
+                    </div>
+                </div>
+            </section>
+        </main>
